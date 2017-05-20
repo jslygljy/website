@@ -1,0 +1,706 @@
+
+<html>
+  <head>
+
+  <title>米谷 - 苏州米谷科技_游戏虚拟交易服务商官网</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Description" content="米谷，全网最专业的虚拟游戏交易服务提供商。苏州米谷科技，为游戏交易提供交易服务的专 业提供商，相信米谷，同赢未来。">
+  <meta name="Keywords" content="米谷,米谷科技,米谷交易,苏州米谷,米交所">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="baidu-site-verification" content="qmog3cQT5d" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Libraries -->
+  <script type="text/javascript" src="${basePath}/system/js/jquery-1.11.0.min.js"></script>
+  <script type="text/JavaScript" src="${basePath}/system/template/javascripts/template.js"></script>
+
+  <!-- Demo Files -->
+  <link rel="stylesheet" type="text/css" href="${basePath}/system/assets/stylesheets/demo.css">
+  <link rel="stylesheet" type="text/css" href="${basePath}/system/assets/stylesheets/animations.css">
+  <link rel="stylesheet" type="text/css" href="${basePath}/system/assets/stylesheets/component.css">
+  
+
+  <script type="text/javascript">
+  	 
+  	function pageShow(){
+  		var array = new Array(${pageCount});
+  		var tt ="";
+  		$.each(array,function(n,value) {   
+  			
+			if((n+1) == 1){
+				tt="<p class='current' href='javascript:void(0);' onclick='jump("+(n+1)+",this)' title='到第"+(n+1)+"页'><a href='javascript:void(0);'  class='active' title='到第 "+(n+1)+"页'>"+(n+1)+"</a></p>";				
+			} else {
+				tt+=" <p class='pager-item' onclick='jump("+(n+1)+",this)'><a href='javascript:void(0);'  class='active' title='到第 "+(n+1)+"页'>"+(n+1)+"</a></p>";
+			}  	  	
+       		$("#pager").html(tt);
+  		});  
+  	}
+  	
+  	function jump(pageNum,obj){
+  		if(pageNum == ''){
+  			pageNum = 1;
+  		}
+  		$("#pager p").attr("class","pager-item");
+  		$(obj).attr("class","current");
+  		$.ajax({
+	        data: {pageNum: pageNum},
+	        type: "POST",
+	        url: "${basePath}/join.htm",
+	        contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	        success: function (data) {
+	        	var dataArray = $.parseJSON(data);
+	        	var infoHtml = "";
+	        	$.each(dataArray,function(n,summary) {
+	        		infoHtml = infoHtml + 
+	                " <div class='clearfix article-box '>"+
+	                " <a href='${basePath}/newsDetail/"+summary.articleId+".htm' class='a-img' target='_blank'>";
+	                if(summary.imgUrl){
+	                	infoHtml = infoHtml + " <img src='${basePath}"+summary.imgUrl+"'>";	
+	                } else {
+	                	infoHtml = infoHtml + " <img src=''>"+"</a>";
+	                }
+	                infoHtml = infoHtml + " <div class='article-box-ctt'>"
+	                +" <h4><a href='${basePath}/newsDetail/"+summary.articleId+".htm' target='_blank'>"+summary.name+"</a><time>"+summary.createTimeAsStr+"</time></h4>"
+	                +" <div class='article-summary'>" + summary.description + "</div>"
+	                +" <p class='tags-box'>" 
+	                + summary.title
+	                +" </p>"
+	                +" </div>"
+	                +" </div>";
+	        	});
+	        	console.log(infoHtml);
+	        	$("#miguzixun").html(infoHtml);
+	        }
+		});
+  	}
+  </script>
+  </head>
+  
+ <body class="index">
+  <!-- menu1  -->
+  <div class="left-side">
+    <div class="header">
+        <a class="link" title="米米logo">
+          <img src="${basePath}/system/images/menu_logo.png" class="logo" title="米谷logo" alt="米谷logo">
+          <div class="close" onclick="closeLeft()"></div>
+        </a>
+    </div>
+    <ul class="sidenav left-nav">
+      <li class="choose"><a href="#first"><i class="fa fa-home"></i><b>遇见米谷</b></a></li>
+      <li><a href="#second"><i class="fa fa-inbox"></i><b>他们和米谷</b></a></li>
+      <li><a href="#four"><i class="fa fa-book"></i><b>期待合作</b></a></li>
+     <!-- <li><a href="#five"><i class="fa fa-star"></i><b>游戏交易系统</b></a></li>-->
+      <li><a href="#six"><i class="fa fa-star2"></i><b>米谷的家</b></a></li>
+     <!--  <li><a href="#seven"><i class="fa fa-star3"></i><b>这就是我们</b></a></li>-->
+      <li><a href="#news"><i class="fa fa-star4"></i><b>米谷资讯</b></a></li>
+      <li><a href="#eight"><i class="fa fa-star4"></i><b>加入米谷</b></a></li>
+      <li><a href="#nine"><i class="fa fa-star5"></i><b>关于米谷</b></a></li>
+    </ul>
+</div>
+  <label id="tm" class="label-left"><i class="fa fa-bars"></i></label>
+  <ul class="content">
+    <li class="first ss-active" id="first">
+      <div class="w980">
+        <span class="first_welcome"></span>
+        <a class="left_first" href="#second"></a>
+        <a class="right_first" href="#five"></a>
+        <div class='eye_wrapper' id='eyeballs'>
+          <span class="center_first floating"></span>
+        </div>
+        </div>
+    </li>
+    <li class="second" id="second">
+      <div class="w980">
+        <div class="boxBor"></div>
+        <!-- menu1  <div class="sec_div"><span class="second_game_title"><img src="${basePath}/system/assets/images/2.gif"></span></div>-->
+        
+        <div class="four_h1_div breathe-btn" style="-moz-user-select:none;" onselectstart="javascript:return false;">
+            合作案例
+        </div>
+        <div class="second_game_list">
+          <a class="second_game_logo1 box" href=""><img class="img-full" src="${basePath}/system/assets/images/logo1.png" title="米谷合作案例-桃花源记"></a>
+          <a class="second_game_logo2 box" href=""><img class="img-full" src="${basePath}/system/assets/images/logo2.png" title="米谷合作案例-神仙与妖怪"></a>
+          <a class="second_game_logo4 box" href=""><img class="img-full" src="${basePath}/system/assets/images/logo4.png" title="米谷合作案例-忘仙"></a>
+           <a class="second_game_logo5 box" href=""><img class="img-full" src="${basePath}/system/assets/images/logo5.png" title="米谷合作案例-吞噬苍穹"></a>
+           <a class="second_game_logo6 box" href=""><img class="img-full" src="${basePath}/system/assets/images/logo6.png" title="米谷合作案例-灵域"></a>
+           <a class="second_game_logo7 box" href=""><img class="img-full" src="${basePath}/system/assets/images/logo7.png" title="米谷合作案例-天之禁"></a>
+          <a class="second_game_logo3 box" href="#four"><img class="img-full" src="${basePath}/system/assets/images/logo3.png" title="米谷合作案例-与我们合作"></a>
+        </div>
+          
+        <div class="four_h1_div breathe-btn" style="-moz-user-select:none;" onselectstart="javascript:return false;">
+            合作收益
+        </div>
+        <img src="${basePath}/system/assets/images/second_bg.png"  title="米谷合作收益">
+      </div>
+    </li>
+    <li class="four" id="four">
+      <div class="w980">
+          <div class="four_h1_div breathe-btn four_breathe four_first" style="-moz-user-select:none;" onselectstart="javascript:return false;">合作流程</div>
+          <div class="col-xs-2">
+            <div class="img-responsive four_list2">
+              <img src="${basePath}/system/assets/images/3-02.png" class="img-responsive img-full four_list" title="米谷合作流程1">
+              <img src="${basePath}/system/assets/images/3-01.png" class="img-responsive img-full stat" title="米谷合作流程1-具体">
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <div class="img-responsive four_list2">
+              <img src="${basePath}/system/assets/images/3-04.png" class="img-responsive img-full four_list" title="米谷合作流程2">
+              <img src="${basePath}/system/assets/images/3-03.png" class="img-responsive img-full stat" title="米谷合作流程2-具体">
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <div class="img-responsive four_list2">
+              <img src="${basePath}/system/assets/images/3-06.png" class="img-responsive img-full four_list" title="米谷合作流程3">
+              <img src="${basePath}/system/assets/images/3-05.png" class="img-responsive img-full stat" title="米谷合作流程3-具体">
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <div class="img-responsive four_list2">
+              <img src="${basePath}/system/assets/images/3-08.png" class="img-responsive img-full four_list" title="米谷合作流程4">
+              <img src="${basePath}/system/assets/images/3-07.png" class="img-responsive img-full stat" title="米谷合作流程4-具体">
+            </div>
+          </div>
+        
+      </div>
+    </li>
+    <!--
+    <li class="five" id="five">
+       <div class="w980"> 
+          <div class="four_h1_div breathe-btn five_breathe" style="-moz-user-select:none;" onselectstart="javascript:return false;">
+              游戏交易系统
+          </div>
+          <span class="app_bg3"></span>
+          <span class="app_bg1"></span>
+          <span class="app_bg2"></span>
+        </div>
+    </li>-->
+    <li class="six" id="six">
+      <div id="ad-1">
+        <div id="clouds">
+          <ul id="cloud-group-1">
+            <li class="cloud-1"></li>
+            <li class="cloud-2"></li>
+            <li class="cloud-3"></li>
+            <li class="cloud-4"></li>
+            <li class="cloud-5"></li>
+          </ul>
+          <ul id="cloud-group-2">
+            <li class="cloud-1"></li>
+            <li class="cloud-2"></li>
+            <li class="cloud-3"></li>
+            <li class="cloud-4"></li>
+            <li class="cloud-5"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="w980">
+        <div class="six_980_bg">
+          <div style="position: relative;">
+            <p class="six_left1">米谷坐落在风光秀美、精致典雅的苏州独<br>墅湖高教区东南大学研究院内。</p>
+            <P class="six_left2">米谷是一家立足于虚拟财产交易的专业服务提供商,可以令虚拟财产在政府许可的范围内，更加安全、自由、多元地流通，同时令合作游戏的社会化属性更加稳定繁荣。 </p>
+            <p class="six_right1">苏州米谷网络科技有限公司成立<br>于2013年6月1日，注册资金1000万元。</p>
+            <p class="six_right2">米谷拥有宽敞明亮的工作区，舒适的休闲<br>娱乐室，力求给每一位来到米谷的小伙伴<br>带来家的温暖。</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="news" id="news">
+      <div class="w980">
+          <div class="four_h1_div breathe-btn news_breathe" style="-moz-user-select:none;" onselectstart="javascript:return false;">
+                	米谷资讯
+          </div>
+          <div id="miguzixun">
+          	 <#list pageInfo.list as summary>
+          	<div class="clearfix article-box ">
+              <a href="${basePath}/newsDetail/${summary.articleId}.htm" class="a-img" target="_blank">
+              <#if summary.imgUrl?exists>
+              	<img src="${basePath}/${summary.imgUrl}">
+              <#else>
+              	<img src="">
+              </#if>
+              </a>
+              <div class="article-box-ctt">
+                  <h4><a href="${basePath}/newsDetail/${summary.articleId}.htm" target="_blank">${summary.name}</a><time>${summary.createTime?string('yyyy-MM-dd HH:mm')}</time></h4>
+                  <div class="article-summary">${summary.description}</div>
+                  <p class="tags-box">
+                    ${summary.title}
+                  </p>
+              </div>
+           </div>
+          </#list>
+           </div>
+          
+          <div id="pager" class="pager">
+             
+          </div>
+       </div>
+    </li>
+   <li class="eight" id="eight">
+<div class="zhaopin_right">
+      <h4>【如何联系】</h4>
+      <p>
+              有意加入米谷团队的
+朋友请将简历发送至
+<a href="mailto:jiangdandan@vip.migu
+99.com">jiangdandan@vip.migu
+99.com</a>，希望有缘分与
+你成为好基友，一辈纸！
+<br><br>
+      这世上最美好的事，
+就是在别人追求梦想的道
+路上，你曾经善意的出现
+过，甚至有力的推动过！
+而我们，正身处其中........
+      </p>
+   </div>
+<div class="w980">
+  <div class="zhaopin_top">
+    <div class="four_h1_div breathe-btn bk_flag eight_breathe">
+    加入我们
+    </div>
+  </div>
+  <div id="tab_menu">
+    <h4>部门职务招聘</h4>
+    <p>商务部：<a class="eight_a choose">商务经理</a><a class="eight_a">商务助理</a></p>
+    <p>运营部：<a class="eight_a">品牌宣传员</a><a class="eight_a">媒体专员</a></p>
+    <p>产品部：<a class="eight_a">产品助理</a></p>
+    <p>技术部：<a class="eight_a">运维工程师</a></p>
+    <p>客服部：<a class="eight_a">客服专员</a></p>
+    <p>行政部：<a class="eight_a">司机</a></p>
+    <p>法务部：<a class="eight_a">法务专员</a></p>
+  </div>
+<div class="eight_tab">
+  <div class="re_deatail" style="margin:26px 0px 0px 69px;width: 593px;">
+    <h4>商务经理</h4>
+    <p class="eight_p">职责描述：</p>
+    <p>1、负责华北区域各类商务渠道合作项目的谈判及拓展；</p>
+    <p>2、负责对合作项目实施推进以及对项目进行评估、谈判及进度的控制，能从公司角度整合及驱动项目的拓展；</p>
+    <p>3、建立并维护游戏厂商及相关客户之间的良好合作关系；</p>
+    <p>4、负责商务合同的执行监督及后期的项目监管。</p>
+    <p class="eight_p">任职要求：</p>
+    <p>1、全日制本科大学毕业或以上学历；</p>
+    <p>2、有在网络游戏公司、网络媒体、金融等行业从事BD、销售、市场等职能3年左右的工作经验；</p>
+    <p>3、有强烈的进取心及敬业精神，有较强的责任心与使命感，有敢于挑战新事物及拼搏的态度与能力；</p>
+    <p>4、具有商务拓展和谈判的实战经验，能独立开展工作、拓展市场；</p>
+    <p>5、理解中国的电子商务相关业务的运作模式和发展趋势。</p>
+  </div>
+    <div class="re_deatail eight_mune_hiden" style="margin:26px 0px 0px 69px;width: 593px;">
+      <h4>商务助理</h4>
+      <p class="eight_p">职责描述：</p>
+      <p>1、负责商务信息的收集、整理、分类；<p>
+      <p>2、负责维护合作伙伴的关系；<p>
+      <p>3、负责维护公司合作方的业务合作关系，协助签署协议；<p>
+      <p>4、建立项目档案，对各种商务合同及相关文本进行收集备案；<p>
+      <p>5、及时协调和协助解决出现的商务问题，负责商务合同的履行；<p>
+      <p>6、上级交办的其他任务。<p>
+      <p class="eight_p">任职要求：</p>
+      <p>1、一年以上工作经验，有游戏渠道、媒体、金融行业的工作经验；</p>
+      <p>2、熟练使用计算机软件（EXCEL、WORD、PPT等），特别是能出色使用PPT制作演示文稿；</p>
+      <p>3、出色的执行力，具备克服困难达成目标的态度与能力；</p>
+      <p>4、工作思路清晰，条理分明，性格开朗、富有责任心；</p>
+      <p>5、优秀的沟通能力，对各种关系能应付自如，有较强的客户服务意识和团队合作精神。</p>
+    </div>
+    <div class="re_deatail eight_mune_hiden" style="margin: 26px 0px 0px 69px;width: 593px;">
+      <h4>品牌宣传专员</h4>
+      <p class="eight_p">岗位职责:</p>
+      <p>1、协助公司领导做好品牌宣传工作，并能独立开展品牌宣传工作；</p>
+      <p>2、负责市场信息收集、整理；</p>
+      <p>3、负责公司宣传平台管理（网站、微信、微博等），包括信息收集、处理及推送；</p>
+      <p>4、负责新闻宣传的策划与管理。结合公司动态与业务需求，撰写宣传稿件，向主流媒体推荐发稿；安排新闻采访，策划组织新闻发布会；监测新闻发布情况和效果；</p>
+      <p>5、负责收集、整理和分析行业舆情。</p>
+      <p class="eight_p">任职要求：</p>
+      <p>1、大学专科或以上学历，新闻、广告、市场营销、金融或相关专业；</p>
+      <p>2、3年以上相关工作经验，有游戏网络媒体工作经验优先；</p>
+      <p>3、新闻写作及文案策划能力强，对网络游戏有一定了解；</p>
+      <p>4、形象良好，良好的组织策划和沟通协调能力；</p>
+      <p>5、服务意识强，有责任心，能在压力下工作。</p>
+    </div>
+    <div class="re_deatail eight_mune_hiden" style="margin:26px 0px 0px 69px;width: 593px;">
+      <h4>媒介专员</h4>
+      <p class="eight_p">岗位职责:</p>
+      <p>1、根据工作需要，制定推广活动执行方案；</p>
+        <p>2、按要求完成媒体新闻稿件的发放、约稿及整理分析；</p>
+        <p>3、建立和维护与媒体的良好合作关系，开拓和发展新的媒体关系；</p> 
+        <p>4、依据公司业务执行宣传计划，协助媒体宣传投放执行，及时对已投放的资源进行追踪及投放监督，并进行效果评估工作。</p>
+      <p class="eight_p">任职要求：</p>
+      <p>1、大专以上学历，市场营销、公共关系、新闻等相关专业优先；</p>
+        <p>2、热爱互联网，对互联网游戏有广泛兴趣的优先；</p>
+        <p>3、形象气质佳，具有优秀文字表达能力和媒介策划能力；</p>
+        <p>4、具有良好谈判能力、创新意识、协调能力、交际能力；</p>
+        <p>5、有团队合作精神，能承担较大工作压力，富有亲和力和感染力；</p>
+        <p>6、工作细心，责任心强，有上进心，思维清晰，学习能力强。</p>
+    </div>
+    <div class="re_deatail eight_mune_hiden" style="margin:26px 0px 0px 69px;width: 593px;">
+      <h4>产品助理</h4>
+      <p class="eight_p">岗位职责:</p>
+      <p>1、与技术研发团队密切配合，负责产品业务规划执行以及 编写产品文档</p>
+      <p>2、用户需求调研，收集反馈意见并分析、筛选，对用户使用行为进行分析</p>
+      <p>3、市场竞争分析，分析竞争对手产品，及行业内外所有相关产品</p>
+      <p>4、优化已有功能或策略以提升用户体验</p>
+      <p>5、产品日常运营维护，根据各类分析、测试结果和用户反馈，持续改进已上线产品，安排项目优先级，配合相关部门推行产品推广工作等</p>
+      <p class="eight_p">任职要求：</p>
+      <p>1. 是网游的资深玩家，特别在端游RPG能如数家珍；</p>
+      <p>2. 涉猎广泛，对互联网要有自己的见解和观点，并能良好的配合产品经理落实产品细节。发挥自己的主动性；</p>
+      <p>3. 对自己要有要求，我们不缺打字员，我们希望为米谷的将来培养明星级的产品经理；</p>
+      <p>4. 对创业有认同感，愿意和兄弟们一起打拼未来的。 </p>
+    </div>
+    <div class="re_deatail eight_mune_hiden" style="margin:26px 0px 0px 69px;width: 593px;">
+      <h4>运维工程师</h4>
+      <p class="eight_p">岗位职责:</p>
+      <p>1. 服务器和网络设备安装与维护；</p>
+      <p>2. 应用系统部署与维护；</p>
+      <p>3. 项目实施与技术支持；</p>
+      <p>4. 外包业务的管理与支持；</p>
+      <p>5. 部门管理相关管理工作。</p>
+      <p class="eight_p">任职要求：</p>
+      <p>1、精通Linux,精通Tomcat,nginx配置管理； 负责网站windows、linux服务器应用系统的部署、配置、管理和优化；</p>
+      <p>2、对故障进行快速有效的定位分析排查处理，保障业务正常运行；</p>
+      <p>3、对服务器的负载、使用状况进行监控处理、统计分析和性能调优；</p>
+      <p>4、积极主动发现及提出日常运维工作的可优化点及优化方案，并贯彻落实执行，形成相关的知识库；</p>
+      <p>5、研究和建立运维系统，推动运维系统的规范化、标准化、自动化和智能化，实现运维自动化和运维效率的提高；</p>
+      <p>6、参与高并发高负载互联网、电子商务网站的维稳和优化，提升应用的速度、稳定性、可靠性、安全性、降低成本；</p>
+      <p>7、熟悉大型网站架构及优化，分布式系统，大型数据库，缓存，队列，运维系统架构等技术优先。</p>
+    </div>
+    <div class="re_deatail eight_mune_hiden" style="margin:26px 0px 0px 69px;width: 593px;">
+      <h4>客服专员</h4>
+      <p class="eight_p">岗位职责:</p>
+      <p>1、熟悉公司业务，按照公司标准流程开展客户服务工作</p>
+        <p>2、在不违背原则的情况下，尽量满足客户需求，及时解决客户问题</p>
+        <p>3、在保证质量的前提下，按照公司KPI要求足量完成客户服务</p>
+        <p>4、结合岗位实际，对公司现行工作流程提出建设性的建议，推动客服工作的持续改进</p>
+      <p class="eight_p">任职要求：</p>
+      <p>1、高中以上学历</p>
+        <p>2、普通话标准，声音甜美</p>
+        <p>3、性格平和，有耐心</p>
+    </div>
+    <div class="re_deatail eight_mune_hiden" style="margin:26px 0px 0px 69px;width: 593px;">
+      <h4>司机</h4>
+      <p class="eight_p">岗位职责:</p>
+      <p>1. 按指定时间、地点，驾驶车辆完成出车任务；</p>
+      <p>2. 负责做好行车加油记录，按照安排定期保养车辆，确保车辆正常行驶；</p>
+      <p>3. 做好车辆年检和日常维护，确保行车安全；</p> 
+      <p>4. 完成领导交给的其他任务。</p>
+      <p class="eight_p">任职要求：</p>
+      <p>1. 具有专职司机工作经验，5年以上驾龄；</p> 
+      <p>2. 熟练掌握各种车型驾驶技术，驾驶过商务车，无不良驾驶记录；</p>
+      <p>3. 有较好的车辆维修保养经验； </p>
+      <p>4. 熟悉苏州城市及周边城市的道路路况；</p>
+      <p>5. 年龄在25周岁至35周岁之间，有A1、A2证的退伍军人优先；</p>
+      <p>6. 良好的口头沟通能力，能自如应付各类突发事件；</p> 
+      <p>7. 良好的职业道德，无不良嗜好，有较强责任感；</p> 
+      <p>8. 身体健康，为人诚实。</p>
+    </div>
+    <div class="re_deatail eight_mune_hiden" style="margin:26px 0px 0px 69px;width: 593px;">
+      <h4>法务</h4>
+      <p class="eight_p">岗位职责:</p>
+      <p>1、起草、审查和修改公司各类法律文书及合同，确保内外部文件不会产生法律风险；</p>
+      <p>2、结合实际工作需求，进行法律法规的检索、研究；</p>
+      <p>3、参与公司项目的招、投标；</p>
+      <p>4、代表公司处理各类诉讼或非诉讼法律事务，组织与处理公司知识产权管理、仲裁诉讼等方面的法律日常事务工作；</p>
+      <p>5、完成上级主管交办的任务。</p>
+      <p class="eight_p">任职要求：</p>
+      <p>1、法学类相关专业毕业，熟悉合同法、经济法、劳动合同法、公司法等法律法规及相关政策，且具备一年以上公司法务处理经验，互联网行业工作者优先；</p>
+      <p>2、具备良好的法律风险评估、分析能力；</p>
+      <p>3、具备优秀的中文书写能力，及沟通协调能力；</p>
+      <p>4、具备良好的职业操守；</p>
+      <p>5、能担当公司内部法律知识的宣传、培训；</p>
+      <p>6、工作严谨、细致、踏实，具有较强的沟通和学习能力，有服务和团队意识。。</p>
+    </div>
+  </div>
+  </div>
+</li>
+    <li class="nine" id="nine">
+      <div class="w980">
+        <div class="four_h1_div breathe-btn nine_breathe">
+              关于米谷
+        </div>
+        <div style="position: relative;">
+          <img src="${basePath}/system/assets/images/nine_top.png" class="last_img img-full" title="关于米谷地图">
+          <img src="${basePath}/system/assets/images/pin.png" class="nine_icon" title="米谷指针跳动">
+        </div>
+        <div class="hi-icon-wrap hi-icon-effect-4 hi-icon-effect-4a">
+            <div class="where_div" style="width:397px;">
+              <a class="hi-icon hi-icon-clock"></a>
+              <p>地址：苏州工业园区林泉街399号三江院515室</p>
+              <p>邮编：215000</p>
+            </div>
+            <div class="where_div">
+              <a class="hi-icon hi-icon-videos"></a>
+              <p>电话：0512-62981271</p>
+              <p>传真：0512-62981270</p>
+            </div>
+            <div class="where_div">
+              <a class="hi-icon hi-icon-list"></a>
+              <p>业务联系：qiuping@migu99.com</p>
+              <p>其他联系：hao.guan@migu99.com</p>
+            </div>
+        </div>
+          <div style="border-top:1px solid #da8c2e;position:absolute;bottom:5%;width: 100%;">
+              <div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
+                <a href="http://weibo.com/3674446343" target="_blank" class="hi-icon hi-icon-images" style="margin-left:275px;margin-right: 96px;"></a>
+                <a href="${basePath}/system/assets/images/chat_sao.jpg"  target="_blank" class="hi-icon hi-icon-pencil"></a>
+                <a class="hi-icon hi-icon-link friend_lk1 friend_lk2"></a>
+                <div class="fri_lk fr_lk2">
+                   <b>
+                      <i></i>
+                    </b>
+                    <a href="http://w.sqage.com/" title="手机端仙侠网游——《忘仙》官方网站 神奇时代荣誉出品" target="_blank">《忘仙》官方网站</a> 
+                    <a href="http://xy.913youxi.com/main.html" title="官网首页 | 官方网站 | 东谷科技 | 2014新网游 | 2.5D网游" target="_blank">《神仙与妖怪》官方网站</a> 
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000464429'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1000464429%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+    <!-- Template Files -->
+  <link rel="stylesheet" type="text/css" href="${basePath}/system/template/stylesheets/reset.css">
+  <link rel="stylesheet" type="text/css" href="${basePath}/system/template/stylesheets/template.css">
+  <!-- SnapScroll Core Files -->
+  <script type="text/JavaScript" src="${basePath}/system/core/dependencies/jquery.scroll_to.js"></script>
+  <script type="text/JavaScript" src="${basePath}/system/core/jquery.snapscroll.js"></script>
+  <script type="text/JavaScript" src="${basePath}/system/assets/javascripts/demo.js"></script>
+  <script type="text/JavaScript" src="${basePath}/system/assets/javascripts/featureCarousel.js"></script>
+  <script type="text/JavaScript" src="${basePath}/system/assets/javascripts/modernizr.custom.js"></script>
+  <script type="text/JavaScript" src="${basePath}/system/assets/javascripts/jquery.lazyload.mini.js"></script>
+<script type="text/javascript">
+   var time = null;
+$(".friend_lk1").hover(function(){
+    clearTimeout(time);
+    $(".fri_lk").css("display","block");
+    },function(){
+    time = setTimeout(function(){
+     $(".fri_lk").css("display","none");
+      },50);
+   });
+$(".fri_lk").hover(function(){
+    clearTimeout(time);
+   $(".fri_lk").css("display","block");
+   },function(){
+   time = setTimeout(function(){
+     $(".fri_lk").css("display","none");
+       },50);
+   });
+//var content_li= $(".content li").hasClass("ss-active").index();
+//$(".sidenav li:eq(content_li) b").attr("style","color:white");
+
+
+  $("ul.sidenav > li").click(function(){
+    $("ul.sidenav > li").removeClass("choose");
+    $(this).addClass("choose");
+  });
+
+  $(document).scroll(function() {
+    var li=$(".content > li.ss-active");
+    var index=$(".content > li").index(li);
+    
+    $("ul.sidenav > li").removeClass("choose").eq(index).addClass("choose");
+
+
+  });
+
+
+
+ $(".app_bg3").hover(function(){
+    clearTimeout(time);
+    $(".five span").removeClass("pulse");
+    $(this).addClass("pulse");
+    });
+  $(".app_bg2").hover(function(){
+    clearTimeout(time);
+    $(".five span").removeClass("pulse");
+    $(this).addClass("pulse");
+    });
+   $(".app_bg1").hover(function(){
+    clearTimeout(time);
+    $(".five span").removeClass("pulse");
+    $(this).addClass("pulse");
+    });
+//第七页图片效果
+$(document).ready(function() {
+  $("#carousel").featureCarousel({
+    autoPlay:7000,
+    trackerIndividual:false,
+    trackerSummation:false,
+    topPadding:50,
+    smallFeatureWidth:.9,
+    smallFeatureHeight:.9,
+    sidePadding:0,
+    smallFeatureOffset:0
+  });
+});
+//侧边栏点击效果
+$("#tm").on("click",function(){
+  openLeft();
+});
+function openLeft(){
+  $("body").removeClass("close-left");$("body").toggleClass("open-left");return false;};
+function closeLeft(){
+  $("body").removeClass("open-left");
+  $("body").toggleClass("close-left");
+  return false;
+};
+//左边导航栏
+   $("#click_first").click(function(){
+    $("#menu").animate({left:"0em"});
+    $(this).hide();
+    $("#click_then").animate({left:"138px"});
+    $("#click_then").show();
+  });
+   $("#click_then").click(function(){
+    $("#menu").animate({left:"-8em"});
+    $(this).hide();
+    $("#click_first").animate({left:"0px"});
+    $("#click_first").show();
+  });
+
+  //第一页logo_hover效果
+   var time = null;
+$(".eye_wrapper").hover(function(){
+    clearTimeout(time);
+    $(".right_first").animate({opacity:"1","right": "20%","top": "60%"},1000);
+    $(".left_first").animate({opacity:"1","left": "20%","top": "60%"},1000);
+    $(".first_welcome").addClass("fadeIn");
+    },function(){
+    time = setTimeout(function(){
+        },50);
+    });
+
+ //合作流程
+   var time = null;
+$(".four_list2").hover(function(){
+    clearTimeout(time);
+    $(this).next(".stat").css("top","0px");
+    
+    },function(){
+     $(this).next(".stat").css("top","240px");
+    $(this).css("overflow","inherit");
+    });
+
+//第二页效果
+  $(window).scroll(function() {
+    $('.second_game_title').each(function(){
+    var imagePos = $(this).offset().top;
+
+    var topOfWindow = $(window).scrollTop();
+      if (imagePos < topOfWindow+400) {
+        $(this).addClass("expandUp");
+        setTimeout(function () {
+        $(".second_game_title img").attr("src","assets/images/second_change_img.png");
+        $(".second_game_title").attr("style","top:140px");
+        $(".second_game_list").fadeIn("slow");
+      },2600);
+      }
+    });
+  });
+
+  $('.box').bind('mouseover',function(){
+    var oPosition=$(this).position();
+    var oThis=$(this)   
+    $('.boxBor').queue('fnHide');   
+    if($(".boxBor").attr('deta-switch')!=='true'){
+      $(".boxBor").attr('deta-switch','true');
+      $(".boxBor").css({
+        width:'240px',
+        height:$(window).height(),
+        left:'-50px',
+        top:'-50px',
+        opacity:0,
+        display:'block'
+      })
+    }
+    $(".boxBor").stop(false,false).animate({
+      opacity:1,
+      left:oPosition.left,
+      top:oPosition.top,
+      width:oThis.width(),
+      height:oThis.height()
+    },250)
+  });
+//第四页效果
+  $(window).scroll(function() {
+    $('.device-arrow').each(function(){
+    var imagePos = $(this).offset().top;
+
+    var topOfWindow = $(window).scrollTop();
+      if (imagePos < topOfWindow+700) {
+        $(this).addClass("stretchRight");
+      }
+    });
+  });
+
+//第五页手机hover效果
+  if($(".guide").length > 0) {
+    var _nTimer = 0,
+      _oGuide$ = $(".guide"),
+      _oGuideTrigger$ = $("#guideTrigger, #tipTrigger"),
+      _oMask$ = $(".mask");
+
+      function _back() {
+        _nTimer = setTimeout(function() {
+        _oMask$.stop().animate({opacity:0}, function(){$(".mask").hide()});
+        _oGuide$.stop().animate({marginLeft:"-120px",opacity:0}, "400", "swing",function(){
+          _oGuide$.hide();
+        });
+      }, 100);
+    };
+//第六页效果
+  $(window).scroll(function() {
+    $('.six_left1').each(function(){
+    var imagePos = $(this).offset().top;
+    var topOfWindow = $(window).scrollTop();
+      if (imagePos < topOfWindow+500) {
+        interval = setInterval('$(this).addClass("stretchRight")',1500);
+      }
+    });
+  });
+    /*guide*/
+    _oGuide$.css({"left":"50%"});
+    _oGuideTrigger$.mouseover(function(){
+      clearTimeout(_nTimer);
+      _oMask$.show().stop().animate({"opacity":0.2});
+      _oGuide$.css("display", "block").stop().animate({marginLeft:"+40px", opacity:1}, 900, "swing", function() {
+        _oGuide$.animate({marginLeft:"+20px"}, 300);
+      });
+    }).mouseout(_back);
+
+    _oGuide$.mouseover(function(){
+      clearTimeout(_nTimer);
+    }).mouseout(_back);
+  };
+
+//第八页效果
+var $div_li = $("#tab_menu a");
+       $div_li.click(function(){
+              $("#tab_menu a").removeClass("choose");
+              $(this).addClass("choose")
+              var div_index = $div_li.index(this);
+              $(".re_deatail").eq(div_index).show().siblings().hide();
+              $("#tab_menu").show();
+              $(".bk_flag").show();
+              $(".pager").show();
+       });
+
+//第九页效果
+    $(window).scroll(function() {
+      $('.nine_icon').each(function(){
+      var imagePos = $(this).offset().top;
+
+      var topOfWindow = $(window).scrollTop();
+        if (imagePos < topOfWindow+500) {
+          $(this).addClass("floating");
+        }
+      });
+    });
+    $(function() {
+    pageShow();
+  $(".img-full").lazyload({ 
+  effect : "fadeIn" 
+  
+  }); 
+  }); 
+
+  </script>
+
+</body>
+</html>
